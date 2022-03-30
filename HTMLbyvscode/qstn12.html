@@ -1,0 +1,95 @@
+<html>
+<head>
+    <script>
+        function validateMobile()
+        {
+            
+            var No=document.getElementById("no").value;
+            if(No.length!=10)
+            {
+                document.getElementById("errNo").innerHTML ="Please enter 10 digit number";
+                return false;
+            }
+            document.getElementById("errNo").innerHTML ="";
+            return true;
+        }
+        function validateName()
+        {
+            var name=document.getElementById("name").value;
+            if(name=="" && name==null && name.trim().length==0)
+            {
+                document.getElementById("errname").innerHTML ="please enter name";
+                return false;
+            }
+            document.getElementById("errname").innerHTML ="*";
+            return true;
+        }
+        function validateEmail()
+        {
+            var mail=document.getElementById("mail").value;
+            for(var i=0;i<mail.length;i++)
+            {
+                if(mail[i]=='@')
+                {
+                    document.getElementById("errmail").innerHTML="";
+                    return true;
+                }
+            }
+            document.getElementById("errmail").innerHTML="please enter valid email";
+            return false;
+        }
+        function validate()
+        {
+            var flag=validateName();
+            var flag1=validateMobile();
+            var flag2=validateEmail();
+            if(flag && flag1 && flag2)
+            {
+                return true;
+            }
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+    <form action="qstn1.html" method="get" onsubmit="return validate()">
+        <table width="550px">
+            <tbody>
+                <tr>
+                    <td><br>
+                        <h2>Appointment Scheduler</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <fieldset width="400">
+                            <legend>Personal Information</legend><br>
+                            Name<br><input type="text" id="name" name="name" autofocus><span id="errname" style="color: red;"> *</span><br><br>
+                            Telephone number<br><input type="text" id="no" name="no"><span id="errNo" style="color: red;"></span><br><br>
+                            Email- address<br><input type="text" id="mail" name="email"><span id="errmail" style="color: red;"></span><br><br><span id="errmsg"></span>
+                            Date of birth<br><input type="date" id="dob" name="dob">
+                        </fieldset>
+                    </td>
+                </tr>
+                <br>
+                <tr>
+                    <td>
+                        <fieldset width="400">
+                            <legend>Appointment Request</legend><br>
+                            What is reason for your visit<br><input type="text" id="name" name="name" placeholder="select or type your reason"><br><br>
+                            Current pain level<br><input type="range" id="range" name="range"><br><br>
+                            Preferred date<br><input type="date"><br><br>
+                            Preferred time<br><input type="time">
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" id ="submit" name="submit" value="submit"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+
+</html>

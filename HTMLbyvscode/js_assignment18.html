@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <script>
+        function stringfuntion() {
+            var flag = document.getElementsByName("option");
+            for (var i = 0; i < flag.length; i++) {
+                if (flag[i].checked) {
+                    var op = flag[i].value;
+
+                }
+            }
+            switch (op) {
+                case "first":
+                    var str1 = document.getElementById("str1").value;
+                    var str2 = document.getElementById("str2").value;
+                    var flag = str1.indexOf(str2);
+                    document.getElementById("myid").innerHTML = "present at index:" + flag;
+                    break;
+                case "second":
+                    var str = document.getElementById("str1").value;
+                    var newstr = str.toUpperCase();
+                    document.getElementById("myid").innerHTML = newstr;
+                    break;
+                case "third":
+                    var str = document.getElementById("str1").value;
+                    var newstr = str.toLowerCase();
+                    document.getElementById("myid").innerHTML = newstr;
+                    break;
+                case "fourth":
+                    var str = document.getElementById("str1").value;
+                    var newstr = str.trim();
+                    document.getElementById("myid").innerHTML = newstr;
+                    break;
+                case "fifth":
+                    var str1 = document.getElementById("str1").value;
+                    var str2 = document.getElementById("str2").value;
+                    var newstr = str1.concat(str2);
+                    document.getElementById("myid").innerHTML = newstr;
+                    break;
+                case "sixth":
+                    var str1 = document.getElementById("str1").value;
+                    var str3 = document.getElementById("str3").value;
+                    var newstr = str1.replace("good", str3);
+                    document.getElementById("myid").innerHTML = newstr;
+                    break;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td>Enter String</td>
+                <td><input type="text" id="str1" name="str1"></td>
+            </tr>
+            <tr>
+                <td>Enter sub String</td>
+                <td><input type="text" id="str2" name="str2"></td>
+            </tr>
+            <tr>
+                <td>Replace with String</td>
+                <td><input type="text" id="str3" name="str3"></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <input type="radio" id="first" name="option" value="first"><label for="first">Search substring in main
+        string</label>
+    <input type="radio" id="second" name="option" value="second"><label for="second">To upper cases</label>
+    <input type="radio" id="third" name="option" value="third"><label for="third">To Lower cases</label>
+    <input type="radio" id="fourth" name="option" value="fourth"><label for="fourth">Trim cases</label>
+    <input type="radio" id="fifth" name="option" value="fifth"><label for="fifth">concatenate</label>
+    <input type="radio" id="sixth" name="option" value="sixth"><label for="sixth">Replace</label><br>
+    <button type="button" id="btn" name="btn" onclick="stringfuntion()">Submit query</button>
+    <p id="myid"></p>
+</body>
+
+</html>

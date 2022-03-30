@@ -1,0 +1,34 @@
+
+<html>
+    <head>
+        <script>
+            var emparr=[];
+            var emp=function(name)
+            {
+                this.name=name;
+            }
+        function addemp()
+        {
+           var name=document.getElementById("nm").value;
+           var e=new emp(name);
+           emparr.push(e);
+        }
+        function display(emparr)
+        {
+            let str="<table><tr><th>Names</th></tr>";
+            for(var v of emparr)
+            {
+                str+="<tr><td>"+v.name+"</td></tr>";
+            }
+            str+="</table>"
+            document.getElementById("myid").innerHTML="<br>"+str;
+        }
+        </script>
+    </head>
+    <body>
+        Name:<input type="text" id="nm" name="nm">
+        <button type="button" id="btn" name="btn" onclick="addemp()">Add Employee</button>
+        <button type="button" id="btn" name="btn" onclick="display(emparr)">Display employee</button>
+         <div id="myid"></div>
+    </body>
+</html>

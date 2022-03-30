@@ -1,0 +1,54 @@
+
+<html>
+
+    <head>
+        <script>
+            function f1() {
+                var p = document.getElementById("nm");
+                p.setAttribute("style", "background-color:cyan");
+    
+            }
+    
+            function f2() {
+                var p = document.getElementById("nm");
+                p.setAttribute("style", "background-color:white");
+    
+            }
+            var cnt = 0;
+    
+            function addtextbox() {
+                var ninput = document.createElement("input"); //<input>
+                ninput.name = "n1";
+                ninput.id = "id" + cnt;
+                cnt++;
+                ninput.type = "text";
+                document.getElementById("mydiv").appendChild(ninput);
+    
+    
+            }
+    
+            function validate() {
+                var p = document.getElementById("nm").value;
+                var b = document.getElementById("btn1");
+                if (p !== "" && p.trim().length > 0) {
+    
+                    b.disabled = false;
+                } else {
+                    b.disabled = true;
+                }
+            }
+        </script>
+    
+    </head>
+    
+    <body>
+        <div id="mydiv">
+            <input type="text" name="nm" id="nm" onfocus="f1()" onblur="f2()" onchange="validate()">
+            <button type="button" name="btn" id="btn" onclick="addtextbox()">add one more</button>
+    
+        </div>
+        <button type="button" name="btn" id="btn1" disabled>click me</button>
+    
+    </body>
+    
+    </html>

@@ -1,0 +1,170 @@
+<html>
+
+<head>
+    <script>
+        function validatepass() {
+            var pass = document.getElementById("pass").value;
+            var cpass = document.getElementById("cpass").value;
+            if (pass === cpass) {
+                document.getElementById("pas").innerHTML = "<br>";
+                return true;
+            }
+            document.getElementById("pas").innerHTML = "Invalid password";
+            return false;
+        }
+        function validate() {
+            var flag = validatepass();
+            if (flag) {
+                return true;
+            }
+            return false;
+        }
+    </script>
+    <style>
+        body {
+            background: cyan;
+        }
+
+        .button {
+            padding: 32px;
+        }
+
+        #myid4 {
+            background-color: darkblue;
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+            padding: 40px;
+            height: 380px;
+        }
+
+        #myid5 {
+            background-color: white;
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+            padding: 40px;
+            height: 380px;
+        }
+
+        span {
+            font-size: 30px;
+        }
+
+        #myid1 {
+            float: left;
+            padding-left: 7px;
+            padding-right: 7px;
+        }
+
+        #myid2 {
+            float: left;
+            width: 460px;
+            padding-left: 7px;
+            padding-top: 40px;
+            color: white;
+        }
+
+        #myid3 {
+            float: left;
+            width: 460px;
+            padding-top: 40px;
+            color: black;
+
+        }
+
+        #myid7 {
+            color: white;
+            background-color: blue;
+            padding: 10px 30px;
+            cursor: pointer;
+        }
+
+        #myid8 {
+            color: blue;
+            background-color: white;
+            padding: 10px 30px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="myid1">
+        <img src="http://127.0.0.1:5500/cdac.jpg" height="100px" width="100px"></img>
+    </div>
+    <div id="myid2">
+
+        <p id="myid4"><span>INFORMATION</span><br><br><br>
+            The Centre for Development of Advanced Computing is an Indian autonomous scientific society,
+            operating under the Ministry of Electronics and Information Technology.The society wasThe society wasThe
+            society wasThe society was created in
+            November 1988 as the Centre for Development of Advanced Computing Technology (C-DACT).India started
+            development of its own supercomputer and C-DAC
+            was created as part of this programme.<br>
+            Dr Vijay Bhatkar was hired as the Director of C-DAC.The project was given an initial run of three
+            years and an initial funding of ₹30,00,00,000, the cost of a Cray supercomputer.
+            <br><br>
+            <input id="myid8" type="button" id="acc" name="acc"
+                onclick="window.location.href='http://127.0.0.1:5500/createaccount.html';" value="Have an account"
+                size="11" readonly>
+        </p>
+    </div>
+    <form action="http://127.0.0.1:5500/registered.html" method="get" onsubmit="return validate()">
+        <div id="myid3">
+            <p id="myid5"><span style="color: blue;">REGISTER FORM</span><br>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Enter First Name"></td>
+                        <td><input type="text" placeholder="Enter Last Name"></td>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <td>Your Email</td>
+                    </tr>
+                    <tr>
+                        <td><input type="email" placeholder="Enter email"></td>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td>Confirm Password</td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" id="pass" placeholder="Enter password"></td>
+                        <td><input type="password" id="cpass" placeholder="Enter password" onblur="validatepass()"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="pas" style="color: red;"><br></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="checking"><label for="checking">I agreed to the terms and
+                                condition</label></td>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <td><input id="myid7" type="submit" id="btn" name="Register" value="Register"></td>
+                    </tr>
+                </tbody>
+            </table>
+    </form>
+    </p>
+
+    </div>
+</body>
+
+</html>

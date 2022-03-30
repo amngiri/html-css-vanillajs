@@ -1,0 +1,112 @@
+<html>
+
+<head>
+    <style>
+        #myid{
+            border: black;
+            border-width: 2px;
+            border-style: solid;
+            border
+        }    
+    </style>
+    <script>
+        function validateamt()
+        {
+            document.getElementById("id1").innerHTML="";
+             var amt=document.getElementById("amt").value;
+             if(amt>1500000)
+             {
+                 document.getElementById("id1").innerHTML="amount should be less than 15laks";
+                 return false;
+             }
+             return true;
+        }
+        function validatetime()
+        {
+            document.getElementById("id2").innerHTML="";
+             var yrs=document.getElementById("yrs").value;
+             if(yrs>=7 && yrs<=15)
+             {
+                 return true;
+             }
+             document.getElementById("id2").innerHTML="years should be between 7-15 years";
+             return false;
+        }
+        function cal()
+        { 
+            if(validateamt() && validatetime())
+            {
+            var amount=parseInt(document.getElementById("amt").value);
+            var intrest=parseInt(document.getElementById("intr").value);
+            var years=parseInt(document.getElementById("yrs").value);
+            document.getElementById("pay").value;
+            document.getElementById("btn").removeAttribute("disabled","");
+            document.getElementById("btn").setAttribute("enabled","");
+            var SI=(amount*intrest*years)/100;
+            var tamount=amount+SI;
+            var monthlypay=(amount*30*years)/365
+            document.getElementById("tpay").value=tamount;
+            document.getElementById("tintr").value=SI;
+            document.getElementById("pay").value=monthlypay;
+            }
+        }
+   
+    </script>
+</head>
+
+<body>
+    <table id="myid">
+        <tbody>
+            <tr>
+                <td>
+                    <header>
+                        <h2>Enter Loan Information</h2>
+                    </header>
+                </td>
+            </tr>
+            <tr>
+                <td>1)Amount of Loan (any currency)</td>
+                <td><input type="number" id="amt" name="amt" onblur="validateamt()"></td>
+            </tr>
+            <tr>
+                <td></td><td><p id="id1"></p></td>
+            </tr>
+            <tr>
+                <td>2)Annual Percentage rate of intrest</td>
+                <td><input type="number" id="intr" name="intr"></td>
+            </tr>
+            <tr>
+                <td>3)Repayment Periods in years</td>
+                <td><input type="number" id="yrs" name="yrs" onblur="validatetime()"></td>
+            </tr>
+            <tr>
+                <td></td><td><p id="id2"></p></td>
+            </tr>
+            <tr>
+                <td><button type="button" id="btn" name="btn" disable onclick="cal()">Compute</button></td>
+            </tr>
+            <tr>
+            <tr>
+                <td></td>
+            </tr>
+            <td>
+                <h2>Payment Information</h2>
+            </td>
+            </tr>
+            <tr>
+                <td>4)Your Monthly Payment will be</td>
+                <td><input type="number" id="pay" name="pay" readonly></td>
+            </tr>
+            <tr>
+                <td>5)Your Total Payment will be</td>
+                <td><input type="number" id="tpay" name="tpay" readonly></td>
+            </tr>
+            <tr>
+                <td>6)Your Total Intrest Payment will be</td>
+                <td><input type="number" id="tintr" name="tintr" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

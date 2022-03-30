@@ -1,0 +1,117 @@
+<html>
+    <head><title>Food menu details</title>
+        <script>
+            foodarr=[];
+            var selfood=new Array();
+            var menu=function(nm,date,e,gender_v,ln,selfood)
+            {
+                this.nm=nm;
+                this.date=date;
+                this.e=e;
+                this.gender_v=gender_v;
+                this.ln=ln;
+                this.selfood=selfood;
+                
+
+            }
+
+            function display(custarr)
+            {
+                let str=" ";
+                console.log(selfood);
+                for (var m of foodarr){
+                    
+                str+="<div><br><br>Name : "+m.nm+"<br>Birth date : "+m.date+"<br>Email : "+m.e+"<br>Gender : "+m.gender_v+"<br>Lucky no : "+m.ln+"<br>Favorite Food:";
+                
+                for(var j=0;j<m.selfood.length;j++)
+                {
+                    str+= m.selfood[j] + " ";
+                }
+            }
+                str+="</div>";
+            
+            
+                alert(str);
+                document.getElementById("answer").innerHTML=str;
+
+           }
+            function get()
+            {
+                    var nm=document.getElementById("nm").value;
+                    var date=document.getElementById("date").value;
+                    var e=document.getElementById("e").value;
+                    var gender=document.getElementsByName("gender");
+                    var gender_v;
+                 
+                for(var i=0;i<gender.length;i++)
+                {
+                    if(gender[i].checked)
+                    {
+                    gender_v=gender[i].value;
+                    break;
+                    }
+                }
+                    var ln=parseInt(document.getElementById("ln").value);
+                    var food=document.getElementsByName("food");
+                     selfood=[];
+                for(var i=0;i<food.length;i++)
+                {
+                    if(food[i].checked)
+                    {
+                        selfood.push(food[i].value);
+                    }
+                }
+                if(nm!=null && date!="" && date!=null && nm!="" && e!=null && e!="" &&  ln!=null && ln!="" && food!=null && food!="" )
+                {
+                    
+                    var m=new menu(nm,date,e,gender_v,ln,selfood);
+                    foodarr.push(m);
+                    display(foodarr);
+                    document.getElementById("nm").value=" ";
+                    document.getElementById("date").value=" ";
+                    document.getElementById("e").value=" ";
+                    document.getElementById("gender").checked=false;
+                    document.getElementById("ln").value=" ";
+                    var farr=document.getElementsByName("food");
+                    for(var i=0;i<farr.length;i++)
+                    {
+                        farr[i].checked=false;
+                    }
+                    
+                    return true;
+                }
+                else
+                {
+                 document.getElementById("err").innerHTML = "* All fields are mandatory";
+                return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        
+        <form style="border: 2px solid royalblue; width:550px">
+            <div style="margin-left: 0.5cm;">
+            <h3 style="color:rgb(201, 14, 14);background-color:rgb(74, 255, 74); width: 120px;">&nbsp;Food Menu</h3>
+            Name :  &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="nm" autofocus><br><br>
+            Birth Date : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="Date" id="date"><br><br>
+            Email Address :&nbsp;&nbsp;<input type="email" id="e"><span >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Format : name@company.com)</span><br><br>
+            Gender :  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio"  id="gender" name="gender" value="male"><label for="male"> Male</label><br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" id="gender" name="gender" value="female"><label for="female"> Female</label><br><br>
+            Lucky number : &nbsp;<input type="number" id="ln" name="ln">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>(Number between 1 to 100)</span><br><br>
+            &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+            <input type="checkbox"  id="food" name="food" value="Pizza"><label for="pizza">  Pizza</label><br>
+            Favorite Foods : <input type="checkbox"  id="food" name="food" value="Pasta"><label for="pasta">    Pasta</label><br>
+            &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+            <input type="checkbox"  id="food" name="food" value="Chinese"><label for="chinese" >    Chinese</label><br> <br>  
+            <button type="button" id="btn" name="btn" value="submit" onclick="get()" >Send Data</button> <br>
+            <span id="err"></span> <br>
+            </div>  
+        </form>
+    </div>
+    <div id="answer"></div>
+    </body>
+</html>

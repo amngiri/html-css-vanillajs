@@ -1,0 +1,27 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            var arr=[];
+            for(var i=0;i<5;i++)
+            {
+                arr[i]=prompt("name");
+            }
+           alert(arr);
+           var arr1=Array();
+            for(var i=0;i<5;i++)
+            {
+               var temp=[];
+               temp=arr[i].split("");
+               arr1[i]=temp.reverse().join("");
+            }
+            alert("Reversed : "+arr1);
+            arr1.sort();
+            for(var i=0;i<5;i++)
+            {
+                document.write(arr[i]+"<br>")
+            }
+        </script>
+    </body>
+</html>

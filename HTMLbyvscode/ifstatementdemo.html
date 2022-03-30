@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <script>
+        function doAction() {
+            //retrieve text box value
+            var n1 = parseInt(document.getElementById("num1").value);
+            var n2 = parseInt(document.getElementById("num2").value);
+            var op = document.getElementsByName("op")
+            for (var i = 0; i < op.length; i++) {
+                if (op[i].checked) {
+                    var action = op[i].value;
+                    break;
+                }
+            }
+            var result = 0;
+            switch (action) {
+                case "add":
+                    result = n1 + n2;
+                    break;
+                case "mul":
+                    result = n1 * n2;
+                    break;
+                case "div":
+                    result = n1 / n2;
+                    break;
+                case "sub":
+                    result = n1 - n2;
+                    break;
+            }
+            document.getElementById("result").value = result;
+            document.getElementById("answer").innerHTML = "this is" + action + "-->" + result;
+            document.getElementById("answer").innerHTML = `This is ${action} ----> ${result}`; //temple operator
+        }
+    </script>
+
+</head>
+
+<body>
+    <p>accept 2 numbers from user select the action and display its result acording to the selected operatiron </p>
+    <form>
+        Number1: <input type="text" name="num1" id="num1" placeholder="enter number 1" autofocus>
+        <br> Number2: <input type="text" name="num2" id="num2" placeHolder="enter number 2"><br> Result : <input type="text" name="result" id="result" placeHolder="display result" disabled><br> Action :
+        <input type="radio" name="op" id="add" value="add"><label for="add">addition</label><br>
+        <input type="radio" name="op" id="mul" value="mul"><label for="mul">multiply</label><br>
+        <input type="radio" name="op" id="div" value="div"><label for="div">division</label><br>
+        <input type="radio" name="op" id="sub" value="sub"><label for="sub">subtract</label><br>
+        <button type="button" id="btn" name="btn" onclick="doAction()">Do action</button>
+        <button type="reset" id="reset" name="btn">clear the form</button>
+        <p id="answer"></p>
+    </form>
+</body>
+
+</html>

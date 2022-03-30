@@ -1,0 +1,38 @@
+
+<html>
+
+    <head>
+        <script>
+            function convertDate() {
+                let today = new Date();
+                var d = document.getElementById("bdate").value;
+                console.log("type of d: " + typeof d);
+                alert("date by user :" + d)
+                mydate = d.split("-");
+                console.log(mydate);
+                var d2 = new Date(2000, 11, 2, 0, 0, 0, 0);
+                alert(d2)
+                var d1 = new Date(parseInt(mydate[0]), parseInt(mydate[1]) - 1, parseInt(mydate[2]), 0, 0, 0, 0);
+                console.log("type of d1: " + typeof d1);
+                alert(d1);
+                alert(d1 > today);
+    
+            }
+        </script>
+    </head>
+    
+    <body>
+        <script>
+            let d = new Date();
+            document.write(d);
+            let dd = d.getDate();
+            let mm = d.getMonth() + 1;
+            let yy = d.getFullYear();
+            today = `${dd}-${mm}-${yy}`;
+           document.write(today);
+        </script>
+        Enter date : <input type="date" name="bdate" id="bdate">
+        <button type="button" name="btn" id="btn" onclick="convertDate()">getDate</button>
+    </body>
+    
+    </html>

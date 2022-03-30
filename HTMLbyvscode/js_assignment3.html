@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <script>
+        function doAction() {
+            document.getElementById("res").innerHTML="";
+            var no1 = parseInt(document.getElementById("no1").value);
+            for(var i=1;i<=no1;i++)
+            {
+                if(i%2===0)
+                {
+                document.getElementById("res").innerHTML+=i+"<br>";
+                }
+            } 
+                // document.getElementById("reset").innerHTML="";
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Enter numbers:</h3>
+    <form>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Number:</td>
+                    <td><input type="text" id="no1" name="no1" placeholder="Enter number" autofocus></td>
+                </tr>
+                <tr>
+
+                    <td><br><button type="button" id="btn" name="button" onclick="doAction()">Show numbers</button></td>
+                    <td><br><button type="reset" id="reset" name="button">Reset</button></td>
+                </tr>
+                <tr>
+                    <td><p id="res"></p></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+
+</html>

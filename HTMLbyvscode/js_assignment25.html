@@ -1,0 +1,97 @@
+<html>
+
+<head>
+    <script>
+        var custarr=[];
+        var str="";
+        var customer=function(orderid,custname,billingdate,shippingdate,total)
+        {
+            this.orderid=orderid;
+            this.custname=custname;
+            this.billingdate=billingdate;
+            this.shippingdate=shippingdate;
+            this.total=total;
+        }
+        function display(custarr)
+        {
+            //alert(custarray);
+           for(var v of custarr)
+           {
+               str+="orderId: "+v.orderid+"<br>customer name: "+v.custname+"<br>Billingdate: "+v.billingdate+"<br>Shipping date: "+
+               v.shippingdate+"<br>total: "+v.total+"<br>";
+               alert(str);
+               document.getElementById("myid").innerHTML=str;
+           }
+        }
+        function validate() {
+            var flag1=false;
+            var flag2=false;
+            var name = document.getElementById("nm").value;
+            document.getElementById("id1").innerHTML = "";
+            if (name.length < 6) {
+                document.getElementById("id1").innerHTML = "Name length cant be less than 6";
+            }
+            else{
+                
+                flag1=true;
+            }
+            var bdate=document.getElementById("bdt").value;
+            var sdate=document.getElementById("sdt").value; 
+            document.getElementById("id2").innerHTML="";
+            if(bdate>sdate)
+            {
+                document.getElementById("id2").innerHTML="Billing date cant be greater than shipping date";
+                flag2=true;
+            }
+            else{
+                
+                flag2=true;
+            }   
+            if(flag1 && flag2)
+            {
+                var orderid=document.getElementById("ono").value;
+                var custname=document.getElementById("nm").value;
+                var billingdate=document.getElementById("bdt").value;
+                var shippingdate=document.getElementById("sdt").value;
+                var total=document.getElementById("to").value;
+                var c=new customer(orderid,custname,billingdate,shippingdate,total);
+               
+                custarr.push(c);
+                //alert(custarr);
+                display(custarr);
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Order Id:<input type="number" id="ono" name="ono" required></td>
+        </tr>
+        <tr><td></td></tr>
+        <tr>
+            <td>Cust Name:<input type="text" id="nm" name="nm"><span id="id1" style="color: red;"></span></td>
+        </tr>
+        <tr><td></td></tr>
+        <tr>
+            <td>Enter Billing Date:<input type="date" id="bdt" name="bdt"><span id="id2" style="color: red;"></span></td>
+        </tr>
+        <tr><td></td></tr>
+        <tr>
+            <td>Enter Shipping Date:<input type="date" id="sdt" name="sdt"></td>
+        </tr>
+        <tr><td></td></tr>
+        <tr>
+            <td>Order Total:<input type="number" id="to" name="to"></td>
+        </tr>
+        <tr><td></td></tr>
+        <tr>
+            <td><button type="submit" id="btn" name="btn" onclick="validate()">display</td>
+        </tr>
+    </table>
+    <p id="myid"></p>
+</body>
+
+</html>

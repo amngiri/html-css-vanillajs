@@ -1,0 +1,39 @@
+
+<html>
+
+    <head>
+        <script>
+            var addcounter = (function() {
+                console.log("in self calling function")
+                let count = 0;
+                return function() { ///closure function
+                    console.log("in nested function");
+                    count++;
+                    return count;
+                }
+    
+    
+            })(); //self calling function, it gets called only once
+    
+            function increaseCounter() {
+    
+                //alert("in function");
+                let cnt = addcounter();
+                //alert(cnt);
+                document.getElementById("myid").innerHTML = `you clicked ${cnt} times`;
+            }
+    
+            function accessCounter() {
+                cnt = 100;
+    
+            }
+        </script>
+    </head>
+    
+    <body>
+        <button type="button" id="btn" name="btn" onclick="increaseCounter()">click counter</button>
+        <button type="button" id="btn" name="btn" onclick="accessCounter()">change counter</button>
+        <p id="myid"></p>
+    </body>
+    
+    </html>

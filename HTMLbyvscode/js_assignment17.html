@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <style>
+        form{
+            border-color: black;
+            border-style: solid;
+            width:200px;
+            padding:30px;
+        }
+    </style>
+    <script>
+        function getarea() {
+            var radius = parseInt(document.getElementById("num").value);
+            var area = Math.PI * radius * radius;
+            var cir = 2 * Math.PI * radius;
+
+            document.getElementById("myid").innerHTML = "area of circle is:" + Math.ceil(area)
+                + "<br><br>circumference of circle is:" + Math.ceil(cir);
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+    Radius<input type="number" id="num" name="num"><br><br>
+    <button type="button" id="btn" name="btn" onclick="getarea()">Display</button><br>
+    <p id="myid"></p>
+</form>
+</body>
+
+</html>
