@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="../script/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#hide").click(function () {
+                $("#mydiv").hide(1000);
+            });
+            $("#show").click(function () {
+                $("#mydiv").show(1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>show<input type="radio" name="nm" id="show" value="show"></td>
+                    <td>hide<input type="radio" name="nm" id="hide" value="show"> </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div id="mydiv" class="disp">
+        <img src="http://127.0.0.1:5500/demo/monkey.jpg" width="420" alt="Vicky Kaushal"></img>
+    </div>
+</body>
+</html>

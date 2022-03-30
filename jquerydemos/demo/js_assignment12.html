@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <script>
+        var count = 0;
+        var emparr = [];
+        var emparray = [];
+        var emp = function (name) {
+            this.name = name;
+        }
+        function addemp() {
+            if (count < 6) {
+                var name = document.getElementById("nm").value;
+                var e = new emp(name);
+                emparr.push(e);
+                count++;
+            }
+            else {
+                document.getElementById("btn1").setAttribute("disable", "");
+                document.getElementById("btn2").setAttribute("disable", "");
+                document.getElementById("myid").innerHTML = "<br>"+"******only 6 members allowed*******";
+            }
+        }
+        function compare(emp1,emp2){
+            if(emp1.name<emp2.name)
+                    return -1;
+            else if(emp1.name==emp2.name)
+                    return 0;
+                 else
+                    return 1;
+
+        }
+        function display(emparr) {
+            emparr.sort(compare);
+            document.getElementById("myid").innerHTML = "";
+            let str = "<table><tr><th>Names</th></tr>";
+            for (var v of emparr) {
+                str += "<tr><td>" + v.name + "</td></tr>";
+            }
+            str += "</table>"
+            document.getElementById("myid").innerHTML = str;
+        }
+    </script>
+</head>
+
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td>Enter Name:</td><td><input type="text" id="nm" name="nm"></td>
+            </tr>
+            <tr>
+                <td><br><button type="button" id="btn1" name="btn1" onclick="addemp()">Add Employee</button></td>
+
+                <td> <br><button type="button" id="btn2" name="btn2" onclick="display(emparr)">Display employee</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="myid"></div>
+</body>
+
+</html>

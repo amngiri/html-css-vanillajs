@@ -1,0 +1,23 @@
+<html>
+<head>
+    <script>
+        function myfun() {
+            var count = 0;
+            var arr = ["www.google.com", "www.msn.com", "www.amozon.co.in", "in.ans.yahoo.com", "en.m.wikepedia.com", "codehs.giftbooks.io", "www.coderanch.com"];
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].substring(0, 3) == "www") {
+                    count++;
+                    // alert(count);
+                }
+                // console.log(count);        
+                document.getElementById("myid").innerHTML = "count of websites having www as first 3 character are:"+count;
+            }
+        }
+    </script>
+</head>
+
+<body onload="myfun()">
+    <div id="myid"></div>
+</body>
+
+</html>

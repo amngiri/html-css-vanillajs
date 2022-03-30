@@ -1,0 +1,143 @@
+<html>
+<head>
+   <title>Area and Parameter</title> 
+   <style>
+       .m1{
+           display: none;
+       }
+   </style>
+   <script src="../script/jquery.js"></script>
+    <script>
+        class shape{
+        }
+        class circle extends shape{
+            
+                constructor(radius){
+                    super();
+            this.radius=radius;
+        }
+        area(){
+            var a=3.14*this.radius*this.radius;
+            return a;
+        }
+        perimeter(){
+            var p=2*3.14*this.radius;
+            return p;
+        }
+        }
+        class rectangle extends shape{
+            constructor(length,breadth){
+                super();
+                this.length=length;
+                this.breadth=breadth;
+            }
+            area(){
+                var are=this.length*this.breadth;
+                return are;
+            }
+            perimeter(){
+                var peri=(2)*(this.length+this.breadth);
+                return peri;
+            }
+        }
+        let shapes=[];
+        function displayTable() {
+             let str = "<table border='2' style='background-color:cyan'> <tr><th> Dimension  </th><th> Area </th><th> Perimeter </th></tr>";
+             for (var s of shapes) {
+                if (s instanceof circle){
+                    str += "<tr><td>Radius = " + s.radius + "</td><td>" + s.area() + "</td><td>" + s.perimeter() + "</td></tr>";
+                }
+                if (s instanceof rectangle){
+                    str += "<tr><td>Length = " + s.length +" ,Breath = "+s.breadth + "</td><td>" + s.area() + "</td><td>" + s.perimeter() + "</td></tr>";
+                }
+        }
+        str += "</table>";
+        alert(str);
+        document.getElementById("mydiv").innerHTML = str;
+        }
+        
+        $(document).ready(function(){
+            var cir;
+            var rec;
+            $("#radius").change(function(){
+                cir=new circle($("#radius").val());
+                var ar=cir.area();
+                var pe=cir.perimeter();
+                $("#areacir").val(ar);
+                $("#percir").val(pe)
+            });
+            $("#addcircle").click(function(){
+                shapes.push(cir);
+            });
+            $("#length , #breadth").change(function(){
+                rec=new rectangle($("#length").val(),$("#breadth").val());
+                var ar=rec.area();
+                var pe=rec.perimeter();
+                $("#arearect").val(ar);
+                $("#perrect").val(pe)
+            });
+            $("#addrectangle").click(function(){
+                 shapes.push(rec);
+             });
+            $("#circle").click(function(){
+                $("#dcircle").show(1000);
+                $("#drect").hide(1000);
+            });
+            $("#rectangle").click(function(){
+                $("#drect").show(1000);
+                $("#dcircle").hide(1000);
+            })
+            $("#but").click(function(){
+                displayTable();
+            });
+        })
+    </script>
+</head>    
+<body>
+    <input type="button" id="circle" name="circle" value="Add Circle"><br><br>
+    <input type="button" id="rectangle" name="rectangle" value="Add Rectangle"><br><br>
+    <input type="button" id="but" name="but" value="Show Table"><br><br>
+    <div id="dcircle" class="m1">
+        <table>
+            <tr>
+                <td align="left">Enter Radius : </td>
+                <td><input type="number" id="radius" autofocus></td>
+            </tr>
+            <tr>
+                <td align="left">Area : </td>
+                <td><input type="number" id="areacir" disabled></td>
+            </tr>
+            <tr>
+                <td align="left">Perimeter : </td>
+                <td><input type="number" id="percir" disabled></td>
+            </tr>
+        </table>
+        <br>
+        <input type="button" id="addcircle" value="Add Circle in Table"><br>
+    </div>
+    <br>
+    <div id="drect" class="m1">
+        <table>
+            <tr>
+                <td align="left">Enter Length : </td>
+                <td><input type="number" id="length" autofocus></td>
+            </tr>
+            <tr>
+                <td align="left">Enter Breadth : </td>
+                <td><input type="number" id="breadth" autofocus></td>
+            </tr>
+            <tr>
+                <td align="left">Area : </td>
+                <td><input type="number" id="arearect" disabled></td>
+            </tr>
+            <tr>
+                <td align="left">Perimeter : </td>
+                <td><input type="number" id="perrect" disabled></td>
+            </tr>
+        </table>
+        <br>
+        <input type="button" id="addrectangle" value="Add Rect in Table">
+    </div>
+    <div id="mydiv"> </div>
+</body>
+</html>

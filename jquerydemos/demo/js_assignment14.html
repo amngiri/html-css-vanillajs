@@ -1,0 +1,90 @@
+<html>
+<head>
+    <style>
+        .myclass {
+            display: none;
+        }
+
+        .myc {
+            display: block;
+        }
+    </style>
+    <script>
+        var circle = function (radius) {
+            this.radius = radius;
+            var acircle = Math.PI * radius * radius;
+            var pcircle = 2 * Math.PI * radius;
+            document.getElementById("id6").innerHTML = "<br><b>Circle Dimension:</b><br><br>Radius: " + radius + "<br>Area: "
+                + Math.round(acircle) + "<br>Perimetre: " + Math.round(pcircle);
+            document.getElementById("id6").setAttribute("class", "myc");
+        }
+        var rectangle = function (length, breadth) {
+            this.length = length;
+            this.breadth = breadth;
+            var rarea = length * breadth;
+            var rper = 2 * (length + breadth);
+            document.getElementById("id6").innerHTML = "<br><b>Rectangle Dimension:</b><br><br>Length: " + length + "<br>Breadth: " + breadth +
+                "<br>area: " + Math.round(rarea) + "<br>Perimetre: " + Math.round(rper);
+            document.getElementById("id6").setAttribute("class", "myc");
+        }
+        function calculate() {
+            var flag1 = document.getElementById("c").checked;
+            var flag2 = document.getElementById("r").checked;
+            if (flag1) {
+                document.getElementById("id4").setAttribute("class", "myc");
+                document.getElementById("id5").setAttribute("class", "myclass");
+                var radius = document.getElementById("div1a").value;
+                if (radius.trim().length != 0) {
+                    var e1 = new circle(radius);
+                }
+            }
+            else if (flag2) {
+                document.getElementById("id4").setAttribute("class", "myclass");
+                document.getElementById("id5").setAttribute("class", "myc");
+                var length = document.getElementById("div2a").value;
+                var breadth = document.getElementById("div2b").value;
+                if (length.trim().length != 0 && breadth.trim().length != 0) {
+                    var e2 = new rectangle(length, breadth);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td>choose shape:</td>
+                <td><input type="radio" id="c" name="c" onclick="calculate()"><label for="c">circle</label>
+                    <input type="radio" id="r" name="c" onclick="calculate()"><label for="r">rectangle</label>
+                </td>
+            </tr>
+            <tr>
+                <td> <br><button type="button" id="btn1" name="btn1" onclick="calculate()">calculate</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="myclass" id="id4">
+        <table>
+            <tr>
+                <td><br>Radius of circle:</td>
+                <td><br><input type="number" id="div1a" name="div1a"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="myclass" id="id5">
+        <table>
+            <tr>
+                <td><br>Length of rectangle:</td>
+                <td><br><input type="number" id="div2a" name="div2a"></td>
+            </tr>
+            <tr>
+                <td><br>Breadth of rectangle:</td>
+                <td><br><input type="number" id="div2b" name="div2b"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="myclass" id="id6">
+    </div>
+</body>
+</html>

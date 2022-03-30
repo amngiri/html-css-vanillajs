@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <script src="../script/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#nm').blur(function () {
+                var no = $('#nm').val();
+                if (no < 0 || no > 1000) {
+                    $('#myid').html("Entered number is out of range");
+                }
+                else {
+                    var sum=0,rem=0;
+                    while (no > 0) {
+                        rem = no % 10;
+                        sum = sum + rem;
+                        no = parseInt(no / 10);
+                    }
+                    $('#myid').html("The sum digit of numbers are:" + sum);
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <pr>Enter a +ve number:</pr><input type="number" id="nm" name="nm"><br>
+    <p id="myid"></p>
+</body>
+
+</html>

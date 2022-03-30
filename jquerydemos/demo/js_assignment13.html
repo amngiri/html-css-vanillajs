@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <script>
+        var count = 0;
+        var emparr = [];
+        var emp = function (id,name,salary) {
+            this.id = id;
+            this.name = name;
+            this.salary = salary;
+            
+        }
+        function addemp() {
+            if (count < 4) {
+                var id = document.getElementById("id").value;
+                var name = document.getElementById("nm").value;
+                var salary = document.getElementById("sal").value;
+                var e = new emp(id,name,salary);
+                emparr.push(e);
+                count++;
+            }
+            else {
+                document.getElementById("btn1").setAttribute("disable", "");
+                document.getElementById("btn2").setAttribute("disable", "");
+                document.getElementById("myid").innerHTML = "<br>"+"******only 4 members allowed*******";
+            }
+        }
+        function display(emparr) {
+            document.getElementById("myid").innerHTML = "";
+            let str = "<table border:'2'><tr><th>Emp Id</th><th>Names</th><th>Salary</th></tr>";
+            for (var v of emparr) {
+                str += "<tr><td>" + v.id + "</td><td>" + v.name + "</td><td>" + v.salary + "</td></tr>";
+            }
+            str += "</table>"
+            document.getElementById("myid").innerHTML = str;
+        }
+    </script>
+</head>
+
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td>Emp ID:</td><td><input type="number" id="id" name="id"></td>
+            </tr>
+            <tr>
+                <td>Name:</td><td><input type="text" id="nm" name="nm"></td>
+            </tr>
+            <tr>
+                <td>Salary:</td><td><input type="text" id="sal" name="sal"></td>
+            </tr>
+            <tr>
+                <td><br><button type="button" id="btn1" name="btn1" onclick="addemp()">Add Employee</button></td>
+
+                <td> <br><button type="button" id="btn2" name="btn2" onclick="display(emparr)">Display employee</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="myid"></div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <script src="../script/jquery.js"></script>
+        <style>
+            .myc{
+                display: none;
+            }
+            .display{
+                display: block;
+            }
+           </style>
+        <script>
+           
+               $(document).ready(function(){
+                   $("#btn").click(function(){
+                    if ($('#show').is(":checked"))
+                   {
+                       $('#id1').addClass("display");
+                   }
+                   else if ($('#hide').is(":checked"))
+                   {
+                       $('#id1').removeClass("display");
+                   }
+                   })
+                   
+               });
+          
+           </script>
+        
+        
+    </head>
+    <body>
+       
+        <input type="radio" id="show" name="imgshow">show</label>
+        <input type="radio" id="hide" name="imgshow">hide<br><br>
+        <input type="button" id="btn" name="btn" value="buttom" ">
+        <div id="id1" class="myc" >
+            <img src="http://127.0.0.1:5500/demo/monkey.jpg" width=500px height="500px"></img> 
+         </div>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+    <title>Document</title>
+    <script>
+
+            function validatename() {
+            document.getElementById("errname").innerHTML = "";
+            var a = document.getElementById("id1").value;
+            
+            //var regexp=a.match(/^[A-Za-z]\w{6,10}$/);
+            
+            const regexp = new RegExp(/^[A-Za-z]\w{6,10}$/);
+            var temp=a;
+            var flags = regexp.test(a);
+            if (temp =="" || temp == null || temp.trim().length == 0) {
+                document.getElementById("errname").innerHTML = "Name is empty";
+                return false;
+            }
+            else if (!flags) {
+                document.getElementById("errname").innerHTML = "invalid name";
+                return false;
+            }
+            document.getElementById("errname").innerHTML = "*";
+            return true;
+        }
+
+        function validatePass() {
+            document.getElementById("id2").innerHTML = "";
+            var pass = document.getElementById("id2").value;
+            const regx = new RegExp("^(?=.*[#])(?=.*[0-9]).{8,}");
+            var flags1 = regx.test(pass);
+            if (!flags1) {
+                document.getElementById("errpass").innerHTML = "invalid password";
+                return false;
+            }
+            return true;
+        }
+
+        function validate() {
+            var flag = validatename();
+            var flag2 = validatePass();
+            if (flag && flag2) {
+                return true;
+            }
+            return false;
+        }
+
+    </script>
+</head>
+
+
+
+<body>
+    <form action="assn24.html" method="get" onsubmit="return validate()">
+        <table>
+            <tbody>
+                <tr>
+                    <td>Enter your Name:<input type="text" name="nm" id="id1" autofocus><span id="errname"
+                            style="color: red;"> *</span><br></td>
+                </tr>
+                <tr>
+                    <td>Enter your password :<input type="password" name="nm1" id="id2"><span
+                            id="errpass" style="color: red;"> *</span><br></td>
+                </tr>
+                <tr align="center">
+                    <td><input type="submit" id="submit" name="submit" value="submit"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+
+</html>

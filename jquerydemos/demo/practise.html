@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <style>
+        div {
+            background-color: cyan;
+            border: 1px solid red;
+            height: 800px;
+            width: 800px
+        }
+    </style>
+    <script src="../script/jquery-3.4.0.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    -->
+    <script>
+        $(document).ready(function() {
+
+
+            $("#btn0").click(function() {
+                //$("#frm").clone().appendTo("div");
+                //to assign single attributes to selected form
+                // $('#frm').attr("name","frm1");
+                //to assign multiple attributes to selected form
+                var p = $("#frm").clone();
+                $("#frm").attr({
+                    "name": "frm1",
+                    "id": "frmid",
+
+                });
+                //alert("in function after setting attribute");
+
+                $("div").append(p);
+
+                alert("in function after setting attribute");
+            });
+            $("#btn1").click(function() {
+                $("div").append("<p>This will be added after last child</p>");
+
+            });
+
+            $("#btn2").click(function() {
+                $("div").prepend("<p>this is added before firstchild</p>")
+            });
+            $("#btn3").click(function() {
+                $("div p:nth-child(3)").before("<h3>This is added before selected p</h3>");
+            });
+            $("#btn4").click(function() {
+                $("div p:nth-child(3)").after("<h3>This is added before selected p</h3>");
+            });
+            $("#btn5").click(function() {
+                $("div p:nth-child(3)").remove();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <form id="frm">
+            Name: <input type="text" name="nm" id="nm"> <br> age: <input type="text" name="age" id="age">
+        </form>
+        <p>This <span>is</span> p1</p>
+        <p>This is p2</p>
+        <p>This is p3</p>
+        <p>This is p4</p>
+    </div>
+    <button type="button" id="btn0" name="btn0">appendTo using clone</button>
+    <button type="button" id="btn1" name="btn1">append</button>
+    <button type="button" id="btn2" name="btn2">prepend</button>
+    <button type="button" id="btn3" name="btn3">before</button>
+    <button type="button" id="btn4" name="btn4">after</button>
+    <button type="button" id="btn5" name="btn5">remove</button>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script>
+       function addMembers()
+       {
+        //    var count=0;
+          var namearr=["John","Steve","Ben","Damon","Ian"];
+          for(var i=0;i<namearr.length;i++)
+          {
+              var litag=document.createElement("li");
+              var txt=document.createTextNode(namearr[i]);
+              litag.appendChild(txt);
+              document.getElementById("plist").appendChild(litag);
+          }
+       }
+    </script>
+    </head>
+    <body>
+        <ol id="plist">
+            <!-- <li></li> -->
+        </ol>
+        <button type="button" id="btn" name="btn" onclick="addMembers()">Add member</button>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+<head>
+    <script src="../script/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btn').one("click", function () {
+                if ($('#seat').val() > 3) {
+                    var p = "<input type='text' name='nm'>";
+                    for (var i = 0; i < $('#seat').val(); i++) {
+                        $(p).attr("id", "p" + i);
+                        $('#myid3').prepend(p, "<br>");
+                    }
+                   var b="<button type='reset' id='btn' name='btn1' value='reset'>Submit";
+                    $('#myid3').append(b, "<br>");
+                    $('#myid3').show(1000);
+                }
+                else {
+                    $('#myid3').hide(1000);
+                }
+            });
+            $('#bt').click(function () {
+                var a = $('#nm1').val();
+                var b = $('#nm2').val();
+                var c = $('#nm3').val();
+                alert(a);
+                alert(b);
+                alert(c);
+            });
+        });
+    </script>
+    <style>
+        table {
+            background-color: khaki;
+            color: black;
+            width: 300px;
+            height: 130px;
+        }
+        #myid3 {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <th></th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" id="nm" name="nm" placeholder="Enter the name"></td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td><input type="date" id="dt" name="dt"></td>
+            </tr>
+            <tr>
+                <td>No of seats</td>
+                <td><input type="number" id="seat" name="seat" placeholder="Enter seat nos""></td></tr>
+             <tr><td><button type=" button" id="btn" name="btn">Book</td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="myid3">
+    </div>
+</body>
+</html>
